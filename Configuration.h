@@ -949,7 +949,7 @@
   #endif
 
   // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
-  #define DELTA_PRINTABLE_RADIUS 98.0    // (mm)
+  #define DELTA_PRINTABLE_RADIUS 95    // (mm)
 
   // Maximum reachable area
   #define DELTA_MAX_RADIUS DELTA_PRINTABLE_RADIUS    // (mm)
@@ -958,7 +958,7 @@
   #define DELTA_DIAGONAL_ROD 214.0        // (mm)
 
   // Distance between bed and nozzle Z home position
-  #define DELTA_HEIGHT       223.8             // (mm) Get this value from G33 auto calibrate
+  #define DELTA_HEIGHT       216.65             // (mm) Get this value from G33 auto calibrate
 
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // (mm) Get these values from G33 auto calibrate
 
