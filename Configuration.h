@@ -928,7 +928,7 @@
   #define DEFAULT_SEGMENTS_PER_SECOND 200
 
   // After homing move down to a height where XY movement is unconstrained
-  //#define DELTA_HOME_TO_SAFE_ZONE
+  #define DELTA_HOME_TO_SAFE_ZONE
 
   // Delta calibration menu
   // Add three-point calibration to the MarlinUI menu.
@@ -958,7 +958,7 @@
   #define DELTA_DIAGONAL_ROD 214.0        // (mm)
 
   // Distance between bed and nozzle Z home position
-  #define DELTA_HEIGHT       216.65             // (mm) Get this value from G33 auto calibrate
+  #define DELTA_HEIGHT       217.25             // (mm) Get this value from G33 auto calibrate
 
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // (mm) Get these values from G33 auto calibrate
 
@@ -1742,7 +1742,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS DELTA_PRINTABLE_RADIUS
 #define Y_MAX_POS DELTA_PRINTABLE_RADIUS
-#define Z_MAX_POS MANUAL_Z_HOME_POS
+#define Z_MAX_POS DELTA_HEIGHT
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
