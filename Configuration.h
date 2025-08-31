@@ -928,7 +928,7 @@
   #define DEFAULT_SEGMENTS_PER_SECOND 200
 
   // After homing move down to a height where XY movement is unconstrained
-  //#define DELTA_HOME_TO_SAFE_ZONE
+  #define DELTA_HOME_TO_SAFE_ZONE
 
   // Delta calibration menu
   // Add three-point calibration to the MarlinUI menu.
@@ -958,7 +958,7 @@
   #define DELTA_DIAGONAL_ROD 214.0        // (mm)
 
   // Distance between bed and nozzle Z home position
-  #define DELTA_HEIGHT       214.0             // (mm) Get this value from G33 auto calibrate
+  #define DELTA_HEIGHT       216.9             // (mm) Get this value from G33 auto calibrate
 
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // (mm) Get these values from G33 auto calibrate
 
@@ -1212,7 +1212,10 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 300, 25 }
+#define DEFAULT_MAX_FEEDRATE_PER_AXIS 200
+#define DEFAULT_E_MAX_FEEDRATE 30
+
+#define DEFAULT_MAX_FEEDRATE          { DEFAULT_MAX_FEEDRATE_PER_AXIS, DEFAULT_MAX_FEEDRATE_PER_AXIS, DEFAULT_MAX_FEEDRATE_PER_AXIS, DEFAULT_E_MAX_FEEDRATE }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1225,7 +1228,10 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 3000, 10000 }
+#define DEFAULT_MAX_ACCELERATION_PER_AXIS 3000
+#define DEFAULT_E_MAX_ACCELERATION 10000
+
+#define DEFAULT_MAX_ACCELERATION      { DEFAULT_MAX_ACCELERATION_PER_AXIS, DEFAULT_MAX_ACCELERATION_PER_AXIS, DEFAULT_MAX_ACCELERATION_PER_AXIS, DEFAULT_E_MAX_ACCELERATION }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1240,9 +1246,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_ACCELERATION         (DEFAULT_MAX_ACCELERATION_PER_AXIS / 2)    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_RETRACT_ACCELERATION (DEFAULT_E_MAX_ACCELERATION / 2)    // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION  DEFAULT_MAX_ACCELERATION_PER_AXIS    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -1528,16 +1534,16 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10
+#define PROBING_MARGIN 13
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE HOMING_FEEDRATE_PER_AXIS
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST HOMING_FEEDRATE_PER_AXIS
+#define Z_PROBE_FEEDRATE_FAST (HOMING_FEEDRATE_PER_AXIS / 2)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
-#define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 3)
+#define Z_PROBE_FEEDRATE_SLOW (HOMING_FEEDRATE_PER_AXIS / 3)
 
 /**
  * Probe Activation Switch
@@ -1584,7 +1590,7 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-//#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 2
 //#define EXTRA_PROBING    1
 
 /**
@@ -2004,7 +2010,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
+  #define GRID_MAX_POINTS_X 7
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
