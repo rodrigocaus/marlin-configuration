@@ -859,7 +859,7 @@
  * Prevent a single extrusion longer than EXTRUDE_MAXLENGTH.
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
-#define PREVENT_LENGTHY_EXTRUDE
+//#define PREVENT_LENGTHY_EXTRUDE
 #define EXTRUDE_MAXLENGTH 200
 
 //===========================================================================
@@ -1207,7 +1207,7 @@
 #define E_FULL_STEPS_PER_ROTATION 200
 #define E_MICROSTEPS 32
 #define E_REDUCTION_RATIO 57/11
-#define E_GEAR_DIAMETER 11.94
+#define E_GEAR_DIAMETER 10.56
 
 #define DEFAULT_XYZ_STEPS_PER_UNIT ((XYZ_FULL_STEPS_PER_ROTATION) * (XYZ_MICROSTEPS) / double(XYZ_BELT_PITCH) / double(XYZ_PULLEY_TEETH)) // default steps per unit for Kossel (GT2, 20 tooth)
 #define DEFAULT_E_STEPS_PER_UNIT ((E_FULL_STEPS_PER_ROTATION) * (E_MICROSTEPS) * double(E_REDUCTION_RATIO) / double(E_GEAR_DIAMETER) / PI)
@@ -1708,7 +1708,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
