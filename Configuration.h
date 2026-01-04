@@ -958,7 +958,7 @@
   #define DELTA_DIAGONAL_ROD 214.0        // (mm)
 
   // Distance between bed and nozzle Z home position
-  #define DELTA_HEIGHT       216.9             // (mm) Get this value from G33 auto calibrate
+  #define DELTA_HEIGHT       216.85             // (mm) Get this value from G33 auto calibrate
 
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // (mm) Get these values from G33 auto calibrate
 
@@ -1355,13 +1355,13 @@
  * Use G29 repeatedly, adjusting the Z height at each point with movement commands
  * or (with LCD_BED_LEVELING) the LCD controller.
  */
-#define PROBE_MANUALLY
+//#define PROBE_MANUALLY
 
 /**
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
-//#define FIX_MOUNTED_PROBE
+#define FIX_MOUNTED_PROBE
 
 /**
  * Use the nozzle as the probe, as with a conductive
@@ -1534,13 +1534,13 @@
  */
 
 #define X_NOZZLE_TO_PROBE_OFFSET 0.0
-#define Y_NOZZLE_TO_PROBE_OFFSET 0.0
-#define Z_NOZZLE_TO_PROBE_OFFSET 0.0
+#define Y_NOZZLE_TO_PROBE_OFFSET -13.0
+#define Z_NOZZLE_TO_PROBE_OFFSET -1.25
 #define NOZZLE_TO_PROBE_OFFSET { X_NOZZLE_TO_PROBE_OFFSET, Y_NOZZLE_TO_PROBE_OFFSET, Z_NOZZLE_TO_PROBE_OFFSET }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 13
+#define PROBING_MARGIN 23.0
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE HOMING_FEEDRATE_PER_AXIS
@@ -1975,7 +1975,7 @@
 
 #if ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL, PROBE_MANUALLY)
   // Set a height for the start of manual adjustment
-  #define MANUAL_PROBE_START_Z   5.0
+  #define MANUAL_PROBE_START_Z   3.0
 #endif
 
 #if ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_BILINEAR, AUTO_BED_LEVELING_UBL)
@@ -2016,7 +2016,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 7
+  #define GRID_MAX_POINTS_X 9
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
