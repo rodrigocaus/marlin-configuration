@@ -936,7 +936,7 @@
   //#define DELTA_CALIBRATION_MENU
 
   // G33 Delta Auto-Calibration. Enable EEPROM_SETTINGS to store results.
-  //#define DELTA_AUTO_CALIBRATION
+  #define DELTA_AUTO_CALIBRATION
 
   #if ENABLED(DELTA_AUTO_CALIBRATION)
     // Default number of probe points : n*n (1 -> 7)
@@ -958,7 +958,7 @@
   #define DELTA_DIAGONAL_ROD 214.0        // (mm)
 
   // Distance between bed and nozzle Z home position
-  #define DELTA_HEIGHT       216.9             // (mm) Get this value from G33 auto calibrate
+  #define DELTA_HEIGHT       216.0             // (mm) Get this value from G33 auto calibrate
 
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // (mm) Get these values from G33 auto calibrate
 
@@ -1540,7 +1540,7 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 22.0
+#define PROBING_MARGIN 1.0
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE HOMING_FEEDRATE_PER_AXIS
