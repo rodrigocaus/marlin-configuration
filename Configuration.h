@@ -949,7 +949,7 @@
   #endif
 
   // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
-  #define DELTA_PRINTABLE_RADIUS 95    // (mm)
+  #define DELTA_PRINTABLE_RADIUS 76.0    // (mm)
 
   // Maximum reachable area
   #define DELTA_MAX_RADIUS DELTA_PRINTABLE_RADIUS    // (mm)
@@ -958,7 +958,7 @@
   #define DELTA_DIAGONAL_ROD 214.0        // (mm)
 
   // Distance between bed and nozzle Z home position
-  #define DELTA_HEIGHT       216.0             // (mm) Get this value from G33 auto calibrate
+  #define DELTA_HEIGHT       245.65             // (mm) Get this value from G33 auto calibrate
 
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // (mm) Get these values from G33 auto calibrate
 
@@ -1534,13 +1534,13 @@
  */
 
 #define X_NOZZLE_TO_PROBE_OFFSET 0.0
-#define Y_NOZZLE_TO_PROBE_OFFSET -13.0
-#define Z_NOZZLE_TO_PROBE_OFFSET -1.3
+#define Y_NOZZLE_TO_PROBE_OFFSET -5.5
+#define Z_NOZZLE_TO_PROBE_OFFSET -13.7
 #define NOZZLE_TO_PROBE_OFFSET { X_NOZZLE_TO_PROBE_OFFSET, Y_NOZZLE_TO_PROBE_OFFSET, Z_NOZZLE_TO_PROBE_OFFSET }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 1.0
+#define PROBING_MARGIN 0
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE HOMING_FEEDRATE_PER_AXIS
@@ -1549,7 +1549,7 @@
 #define Z_PROBE_FEEDRATE_FAST (HOMING_FEEDRATE_PER_AXIS / 2)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
-#define Z_PROBE_FEEDRATE_SLOW (HOMING_FEEDRATE_PER_AXIS / 3)
+#define Z_PROBE_FEEDRATE_SLOW (HOMING_FEEDRATE_PER_AXIS / 4)
 
 /**
  * Probe Activation Switch
@@ -1618,7 +1618,7 @@
 #define Z_CLEARANCE_MULTI_PROBE     5 // (mm) Z Clearance between multiple probes
 //#define Z_AFTER_PROBING           5 // (mm) Z position after probing is done
 
-#define Z_PROBE_LOW_POINT          -2 // (mm) Farthest distance below the trigger-point to go before stopping
+#define Z_PROBE_LOW_POINT          -5 // (mm) Farthest distance below the trigger-point to go before stopping
 
 // For M851 give a range for adjusting the Z probe offset
 #define Z_PROBE_OFFSET_RANGE_MIN -20
