@@ -962,7 +962,7 @@
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // (mm) Get these values from G33 auto calibrate
 
   // Horizontal distance bridged by diagonal push rods when effector is centered.
-  #define DELTA_RADIUS 112              // (mm) Get this value from G33 auto calibrate
+  #define DELTA_RADIUS 107              // (mm) Get this value from G33 auto calibrate
 
   // Trim adjustments for individual towers
   // tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
@@ -1534,7 +1534,7 @@
 
 #define X_NOZZLE_TO_PROBE_OFFSET 0.0
 #define Y_NOZZLE_TO_PROBE_OFFSET -5.5
-#define Z_NOZZLE_TO_PROBE_OFFSET -13.7
+#define Z_NOZZLE_TO_PROBE_OFFSET -13.75
 #define NOZZLE_TO_PROBE_OFFSET { X_NOZZLE_TO_PROBE_OFFSET, Y_NOZZLE_TO_PROBE_OFFSET, Z_NOZZLE_TO_PROBE_OFFSET }
 
 // Most probes should stay away from the edges of the bed, but
